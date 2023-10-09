@@ -18,11 +18,11 @@ jobs:
 
       - name: Build the container image
         run:  |
-          docker build -t container-image-demo -f $GITHUB_WORKSPACE/NativeBlink/.devcontainer/Dockerfile
+          docker build -t container-image-demo -f $GITHUB_WORKSPACE/NativeBlink/.devcontainer/Dockerfile .
 
       - name: Create and start a container
         run:  |
-          docker container create --name container-demo --mount src="$GITHUB_WORKSPACE",target=/azure-sphere-gallery,type=bind container-image-demo
+          docker create -it --name container-demo --mount src="$GITHUB_WORKSPACE",target=/azure-sphere-gallery,type=bind container-image-demo
           docker start container-demo
 
       - name: Build the app and run tests in container
@@ -38,3 +38,8 @@ jobs:
         if: always()
         with:
           files: $GITHUB_WORKSPACE/NativeBlink/TestResults.xml
+
+      - name: Stop and remove the container
+        run:  |
+          docker stop container-demo
+          docker rm container-demo
