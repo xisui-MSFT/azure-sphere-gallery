@@ -38,8 +38,3 @@ jobs:
         if: always()
         with:
           files: $GITHUB_WORKSPACE/NativeBlink/TestResults.xml
-
-      - name: Stop and remove the container
-        run:  |
-          docker stop container-demo
-          docker rm container-demo
