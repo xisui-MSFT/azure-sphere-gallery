@@ -2,8 +2,8 @@
   "version": 2,
   "configurePresets": [
     {
-      "name": "Arm-Debug",
-      "displayName": "Arm-Debug",
+      "name": "ARM-Debug",
+      "displayName": "ARM-Debug",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/out/${presetName}",
       "cacheVariables": {
@@ -20,9 +20,9 @@
       }
     },
     {
-      "name": "Arm-Release",
-      "displayName": "Arm-Release",
-      "inherits": "Arm-Debug",
+      "name": "ARM-Release",
+      "displayName": "ARM-Release",
+      "inherits": "ARM-Debug",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       }
@@ -56,12 +56,12 @@
   ],
   "buildPresets": [
     {
-      "name": "Arm-Debug",
-      "configurePreset": "Arm-Debug"
+      "name": "ARM-Debug",
+      "configurePreset": "ARM-Debug"
     },
     {
-      "name": "Arm-Release",
-      "configurePreset": "Arm-Release"
+      "name": "ARM-Release",
+      "configurePreset": "ARM-Release"
     },
     {
       "name": "x86-Debug",
@@ -74,12 +74,12 @@
   ],
   "testPresets": [
     {
-      "name": "Arm-Debug",
-      "configurePreset": "Arm-Debug"
+      "name": "ARM-Debug",
+      "configurePreset": "ARM-Debug"
     },
     {
-      "name": "Arm-Release",
-      "configurePreset": "Arm-Release"
+      "name": "ARM-Release",
+      "configurePreset": "ARM-Release"
     },
     {
       "name": "x86-Debug",
